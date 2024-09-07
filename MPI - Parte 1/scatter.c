@@ -15,7 +15,6 @@ int main(int argc, char **argv)
     int dim, local_dim=0;
     double *vettore, *local_vett;
 
-
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
     MPI_Comm_rank(MPI_COMM_WORLD, &proc_rank);
     MPI_Get_processor_name(processor_name, &name_len);
