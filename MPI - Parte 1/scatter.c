@@ -1,3 +1,4 @@
+
 #include <mpi.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -36,11 +37,12 @@ int main(int argc, char **argv)
     }
     MPI_Bcast(&local_dim, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
-    printf("\n Proc_rank = %d Local dim=%d\n",proc_rank, local_dim);
+    //printf("\n Proc_rank = %d Local dim=%d\n",proc_rank, local_dim);
    
     local_vett = (double*) calloc(local_dim, sizeof(double));
 
     MPI_Scatter(&vettore[0], local_dim, MPI_DOUBLE, &local_vett[0], local_dim, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+    
     printf("\n Vettore local_vett sul processo %d: ",proc_rank);
     stampa_vettore(local_vett,local_dim);
     fflush(stdout);

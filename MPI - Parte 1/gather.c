@@ -63,10 +63,12 @@ int main (int argc, char *argv[]){
     MPI_Gather(&local_vett[0],local_dim,MPI_DOUBLE,&vett1[0],local_dim,MPI_DOUBLE,0,MPI_COMM_WORLD);
 
     
-    printf("\n Vettore vett1 su processo %d",me);
-    fflush(stdout);
-    stampa_vettore(vett1,dim);
-        
+    if(me == 0){
+        printf("\n Vettore vett1 su processo %d",me);
+        fflush(stdout);
+        stampa_vettore(vett1,dim);
+    }
+            
     
     MPI_Finalize();
 
